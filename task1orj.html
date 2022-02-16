@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./task1orj.css"/> 
+
+    <title>Document</title>
+</head>
+<body>
+    <form onsubmit="submitFunction(event)">
+        <label for="fname">First Name</label><br>
+        <input type="text" id="firstname" name="firstname" placeholder="Your First name.." ><br>
+        <label for="fname">last Name</label><br>
+        <input type="text" id="lastname" name="firstname" placeholder="Your Last name.." ><br>
+    <label for="fname">Email</label><br>
+    <input type="email" id="fname" name="firstname" placeholder="Your  Email.." ><br>
+    <label for="fname">Phone Number</label><br>
+    <input type="number" id="phone Number" name="firstname" placeholder="Your Phone number.." ><br>
+    <label for="fname">Password</label><br>
+    <input type="password" id="password" name="firstname" placeholder="Your password.." ><br>
+    <label for="fname">Conf Password</label><br>
+    <input type="password" id="check2" name="firstname" placeholder="Your password.." ><br>
+    <label for="fname">Gender</label><br>
+   <div> <label for="child">Homme" </label><br>
+    
+    <input type="radio" id="adult" name="age" ><br>
+</div>
+    <div><label for="adult">Femme</label><br>
+    <input type="radio" id="child" name="age" ><br>
+</div>
+     <div><label for="child">Autre</label><br>
+        <input type="radio" id="child" name="age" ><br>
+     </div>
+    <label for="fname">Date of Birth</label><br>
+    <input type="date" id="dat" name="f" ><br>
+    
+    <div class="sumb"><input type="submit" value="Submit"></div>
+
+    </form>
+ 
+
+
+
+
+    <script>
+      let form=document.getElementById("form");
+let firstname=document.getElementById("firstname");
+let lastname=document.getElementById("lastname");
+let password=document.getElementById("password");
+let password2=document.getElementById("check2");
+let email=document.getElementById("email");
+let phonenumber=document.getElementById("phonenumber");
+let dat=document.getElementById("dat");
+let datv=dat.value;
+
+     
+     
+
+        function submitFunction(event) {
+          let firstnameValue=firstname.value;
+    let lastnameValue=lastname.value;
+    let passwordValue=password.value;
+    let password2Value=password2.value;
+    let emailValue=email.value;
+    let phonenumberValue=phonenumber.value;
+    let datv=dat.value;
+
+            event.preventDefault()
+
+            var numberCheck = true
+            var nameCheck = true
+           var passwordCheck = true
+          var agecheck=true
+          var confcheck=true 
+          var x =/"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"/;
+
+          
+            
+        
+        if (parseInt(phonenumberValue).length !=8) {
+                       numberCheck = false 
+                            alert('le numéro doit contenir 8 chiffre ')
+                            return false;
+
+
+                        }
+        
+           var letters = /^[A-Za-z]+$/;
+              if  ( firstnameValue !=letters)
+              {
+                nameCheck = false
+              alert('Please input alphabet characters only');
+              return false;
+              }
+            
+
+              if  (lastnameValue !=letters)
+              {
+                nameCheck = false
+              alert('Please input alphabet characters only');
+              return false;
+              }
+               
+         
+
+          if  (password2Value!=x)
+              {
+              alert('password should contain uppercase lowercase special character and number javascript');
+              return false;
+              }
+            
+           
+           
+          else   if (passwordValue!= password2Value)
+              {
+                  confcheck=false
+                  alert("conf password must be the same as password")
+                  return false;
+              }
+            
+        
+        
+            else     if ((nameCheck === true) && (numberCheck === true) &&(passwordCheck ===true)&& (agecheck===true) && (confcheck===true)){
+                            event.target.submit()
+        
+        
+              }
+
+
+              if(datv==="") {
+        alert(dat, "Date of birth cannot be blank cannot be blank");
+        return false 
+         }else if(dateofbirth(datv)===false){
+        alert(dat,"You must be 18");
+        return false  
+           }
+
+             
+        
+           console.log(form);
+
+        }
+      
+        function dateofbirth (birth) {
+           year=parseInt(birth.slice(0,4));
+    age=2022-year;
+    if(age>=18) {
+        return true;
+    }else {
+        return false;
+    }
+  }
+    
+        
+  </script>
+</body>
+
+</html>
