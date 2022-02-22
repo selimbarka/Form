@@ -29,3 +29,15 @@ body{
     border-bottom: 2px solid rgb(88, 88, 88);
     padding-left: 15px;
   }
+  .aa{
+    display: flex;
+    justify-content: flex;
+  }
+table,th,td{
+  border: 2px solid bisque;
+  padding: 5px;
+
+}
+table{
+  margin-top: 200px;
+  }
